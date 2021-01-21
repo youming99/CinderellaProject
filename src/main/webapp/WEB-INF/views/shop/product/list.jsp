@@ -1,9 +1,11 @@
+<%@page import="com.project.cinderella.common.Formatter"%>
 <%@page import="com.project.cinderella.model.domain.Product"%>
 <%@page import="com.project.cinderella.model.domain.SubCategory"%>
 <%@page import="com.project.cinderella.model.domain.TopCategory"%>
 <%@ page contentType="text/html; charset=utf-8"%>
 <%
-   List<TopCategory> topList = (List)request.getAttribute("topList");
+   //List<TopCategory> topList = (List)request.getAttribute("topList");
+   //int topcategory_id = (int)request.getAttribute("topcategory_id");
    List<SubCategory> subList = (List)request.getAttribute("subList");
    //System.out.println("subList" + subList.toString());
    List<Product> productList  = (List)request.getAttribute("productList");
@@ -16,12 +18,28 @@
     <meta name="keywords" content="Male_Fashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Male-Fashion | Template</title>
+    <title>Cinderella | ProductList</title>
     <%@ include file="../inc/header.jsp" %>
 </head>
 <style>
 </style>
 <script>
+function sizeS(){
+   var sizeS = document.getElementById('s').value;
+   alert("눌렀?"+ sizeS);
+   sizeList(sizeS);
+}
+function sizeM(){
+   var sizeM = document.getElementById('m').value;
+   alert("눌렀?"+ sizeM);
+}
+function sizeL(){
+   var sizeL = document.getElementById('l').value;
+   alert("눌렀?"+ sizeL);
+}
+<%-- function sizeList(size){
+   locathion.href="/cinderella/shop/product/list/topcategory_id=<%=%>size="+size
+} --%>
 </script>
 <body>
 <%@ include file="../inc/top.jsp" %>
@@ -32,10 +50,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4>Shop</h4>
+                            <%-- <%TopCategory topCategory1 = topList.get(topcategory_id-1); %>  --%>
+                           <h4>Product -<%--  <%=topCategory1.getTopcategory_name()%> --%></h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <span>Shop</span>
+                            <a href="/cinderella/">Home</a>
+                            <span>Product</span>
                         </div>
                     </div>
                 </div>
@@ -70,7 +89,7 @@
                                                 <ul class="nice-scroll">
                                                   <%for(int j=0; j<topCategory.getSubCategory().size(); j++){ %>
                                                    <%SubCategory subCategory = topCategory.getSubCategory().get(j); %>
-                                                    <li><a href="/cinderella/shop/product/list?subcategory_id=<%=subCategory.getSubcategory_id()%>"><%=subCategory.getSubcategory_name() %></a></li>
+                                                    <li><a href="/cinderella/shop/product/sublist?subcategory_id=<%=subCategory.getSubcategory_id()%>"><%=subCategory.getSubcategory_name() %></a></li>
                                                     <%} %> 
                                                 </ul>
                                             </div>
@@ -78,46 +97,55 @@
                                     </div>
                                 </div>
                                 <%} %> 
+                                
+                                <!-- 사이즈 -->
                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseTwo">Size</a>
+                                        <a data-toggle="collapse" data-target="#collapseFour">Size</a>
                                     </div>
                                     <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__size">
-                                                <label for="xs">xs
-                                                    <input type="radio" id="xs">
+                                                <label for="s" onClick="sizeS()" value="s">s
+                                                    <input type="radio" id="s" value="s">
                                                 </label>
-                                                <label for="sm">s
-                                                    <input type="radio" id="sm">
+                                                <label for="md" onClick="sizeM()" value="m">m
+                                                    <input type="radio" id="m" value="m">
                                                 </label>
-                                                <label for="md">m
-                                                    <input type="radio" id="md">
-                                                </label>
-                                                <label for="xl">xl
-                                                    <input type="radio" id="xl">
-                                                </label>
-                                                <label for="2xl">2xl
-                                                    <input type="radio" id="2xl">
-                                                </label>
-                                                <label for="xxl">xxl
-                                                    <input type="radio" id="xxl">
-                                                </label>
-                                                <label for="3xl">3xl
-                                                    <input type="radio" id="3xl">
-                                                </label>
-                                                <label for="4xl">4xl
-                                                    <input type="radio" id="4xl">
+                                                <label for="xl" onClick="sizeL()" value="l" >l
+                                                    <input type="radio" id="l"  value="l" >
                                                 </label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
+                                
+                                <!-- 태그 -->
+                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
+                                        <a data-toggle="collapse" data-target="#collapseFive">Tags</a>
                                     </div>
                                     <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__tags">
+                                                <a href="#">Product</a>
+                                                <a href="#">Bags</a>
+                                                <a href="#">Shoes</a>
+                                                <a href="#">Fashio</a>
+                                                <a href="#">Clothing</a>
+                                                <a href="#">Hats</a>
+                                                <a href="#">Accessories</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- color -->
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseSix">Colors</a>
+                                    </div>
+                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
                                                 <label class="c-1" for="sp-1">
@@ -151,24 +179,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
-                                    </div>
-                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__tags">
-                                                <a href="#">Product</a>
-                                                <a href="#">Bags</a>
-                                                <a href="#">Shoes</a>
-                                                <a href="#">Fashio</a>
-                                                <a href="#">Clothing</a>
-                                                <a href="#">Hats</a>
-                                                <a href="#">Accessories</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                             </div>
                         </div>
                     </div>
@@ -196,22 +207,23 @@
                     </div>
                     
                     <!-- 상품 -->
-                    <%-- <div class="row">
+                    
+                    <div class="row">
+                               <%for(int i=0; i<productList.size(); i++){ %>
+                               <%Product product = productList.get(i); %>
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item">
-                            	<%for(int i=0; i<productList.size(); i++){ %>
-                            	<%Product product = productList.get(i); %>
-                                <div class="product__item__pic set-bg" data-setbg="/cinderella/resources/data/basic/<%=product.getProduct_id()%>.<%=product.getFilename()%>">
+                                <div class="product__item__pic set-bg" >
+                                   <img src="/cinderella/resources/data/basic/<%=product.getProduct_id()%>.<%=product.getFilename()%>" width="250px" height="200px">
                                     <ul class="product__hover">
                                         <li><a href="#"><img src="/cinderella/resources/img/icon/heart.png" alt=""></a></li>
-                                        <li><a href="#"><img src="/cinderella/resources/img/icon/compare.png" alt=""> <span>Compare</span></a>
-                                        </li>
-                                        <li><a href="#"><img src="/cinderella/resources/img/icon/search.png" alt=""></a></li>
+                                        <li><a href="#"><img src="/cinderella/resources/img/icon/compare.png" alt=""> <span>Compare</span></a> </li>
+                                        <li><a href="/cinderella/shop/product/detail?product_id=<%=product.getProduct_id()%>&product_name=<%=product.getProduct_name()%>"><img src="/cinderella/resources/img/icon/search.png" alt=""></a><span>detail</span></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><%=product.getProduct_name() %></h6>
-                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                                    <h6><%=product.getProduct_name() %>  (<%=product.getHit() %>)</h6>
+                                    <a href="/cinderella/shop/product/detail?product_id=<%=product.getProduct_id()%>" class="add-cart">+ Add To Cart</a>
                                     <div class="rating">
                                         <i class="fa fa-star-o"></i>
                                         <i class="fa fa-star-o"></i>
@@ -232,10 +244,10 @@
                                         </label>
                                     </div>
                                 </div>
-                                <%} %>
                             </div>
                         </div>
-                    </div> --%>
+                                <%} %>
+                    </div>
                     
             </div>
         </div>
@@ -245,6 +257,7 @@
     <!-- Footer Section Begin -->
    <%@ include file="../inc/footer.jsp" %>
     <!-- Footer Section End -->
+           <%@ include file="../inc/bottom.jsp" %>
     
     
 </body>

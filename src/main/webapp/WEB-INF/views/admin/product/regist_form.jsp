@@ -1,6 +1,6 @@
 <%@page import="com.project.cinderella.model.domain.TopCategory"%>
 <%@page import="java.util.List"%>
-<%@ page contentType="text/html;charset=utf-8"%>
+<%@ page contentType="text/html; charset=utf-8"%>
 <%
 	List<TopCategory> topList = (List)request.getAttribute("topList");
 %>
@@ -320,7 +320,7 @@ function regist(){
 <div class="container">
   <form>
      
-     <select>
+     <select name="topcategory_id">
   		<option>상위카테고리 선택</option>
   		<%for(TopCategory topCategory : topList){%>
   		<option value="<%=topCategory.getTopcategory_id()%>"><%=topCategory.getTopcategory_name()%></option>
@@ -382,7 +382,7 @@ function regist(){
 		<input type="color" name="color[3].picker" value="#FF7F27">
 		<input type="color" name="color[4].picker" value="#FFF200">
 		<input type="color" name="color[5].picker" value="#3F48CC">
-		<input type="color" name="color[5].picker" value="#A349A4">
+		<input type="color" name="color[6].picker" value="#A349A4">
 	</div>
 	
     <textarea id="detail" name="detail" placeholder="상세정보.." style="height:200px"></textarea>

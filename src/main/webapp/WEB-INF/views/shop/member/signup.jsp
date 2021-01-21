@@ -14,20 +14,7 @@
 <title>Male-Fashion | Template</title>
 
 <!-- Google Font -->
-<link
-   href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-   rel="stylesheet">
-
-<!-- Css Styles -->
-<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-<link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
-<link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-<link rel="stylesheet" href="css/nice-select.css" type="text/css">
-<link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-<link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-
+<
 
    <script>
    $(function(){
@@ -45,7 +32,7 @@
       
       //form 태그의 파라미터들을 전송할수있는 상태로 둬야  data키값에 form 자체를 넣을 수 있다.
       var formData = $("#member_form").serialize(); //전부 문자열화 시킨다!!
-      alert(formData);
+      //alert(formData);
       
       $.ajax({
          url:"/cinderella/shop/member/regist", 
@@ -76,11 +63,8 @@
          <div class="row">
             <div class="col-lg-12">
                <div class="breadcrumb__text">
-                  <h4>Check Out</h4>
-                  <div class="breadcrumb__links">
-                     <a href="./index.html">Home</a> <a href="./shop.html">Shop</a> <span>Check
-                        Out</span>
-                  </div>
+                  <h4>Sign Up</h4>
+                  
                </div>
             </div>
          </div>
@@ -141,11 +125,11 @@
                               <p>
                                  <span><br></span>
                               </p>
-                           <select name="email_server">
-               <option value="gmail.com">gmail.com</option>
-               <option value="daum.net">daum.net</option>
-               <option value="naver.com">naver.com</option>
-            </select>
+                             <select name="email_server">
+                              <option value="gmail.com">gmail.com</option>
+                              <option value="daum.net">daum.net</option>
+                              <option value="naver.com">naver.com</option>
+                         </select>
                            </div>
                         </div>
                      </div>
@@ -181,6 +165,7 @@
    <!-- Checkout Section End -->
 
    <%@ include file="../inc/footer.jsp"%>
+   <%@ include file="../inc/bottom.jsp" %>
 
 </body>
 

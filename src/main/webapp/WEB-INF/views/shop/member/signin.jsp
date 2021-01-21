@@ -32,60 +32,76 @@ function login(){
 </style>   
 <body>
 
-    <!-- slider Area Start-->
-    <div class="slider-area ">
-        <!-- Mobile Menu -->
-        <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/category.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>Login</h2>
-                        </div>
-                    </div>
-                </div>
+    <!-- Breadcrumb Section Begin -->
+   <section class="breadcrumb-option">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12">
+               <div class="breadcrumb__text" >
+                  <h4>Log In</h4>
+               </div>
             </div>
-        </div>
-    </div>
-    <!-- slider Area End-->
+         </div>
+      </div>
+   </section>
+   <!-- Breadcrumb Section End -->
 
     <!--================login_part Area =================-->
-    <section class="login_part section_padding ">
+    <section class="login_part section_padding " style="text-align:center" width="100px">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-6">
+               <!--  <div class="col-lg-6 col-md-6">
                     <div class="login_part_text text-center">
                         <div class="login_part_text_iner">
                             <h2>New to our Shop?</h2>
-                            <!-- <p>There are advances being made in science and technology
-                                everyday, and a good example of this is the</p> -->
-                           <!--  <a href="#" class="btn_3">Create an Account</a> -->
+                            <p>There are advances being made in science and technology
+                                everyday, and a good example of this is the</p>
+                            <a href="#" class="btn_3">Create an Account</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
+                </div> -->
+                <div class="col-lg-6 _col-md-6"  style="margin:0 auto">
                     <div class="login_part_form">
                         <div class="login_part_form_iner">
-                            <h3>Welcome Back ! <br>
-                                Please Sign in now</h3>
                                 <div id="loader" style="margin:auto"></div>
-         <form id="loginForm" style="margin:50px 50px">
+                           <form id="loginForm" style="text-align:center">
+                           
+                          
+                           
                             <!-- <form class="row contact_form" action="#" method="post" novalidate="novalidate"> -->
+                               <table style="margin:auto">
+                               <tr>
+                               <td colspan="2">
+                                <h6 class="coupon__code">
+                        <span class="icon_tag_alt"></span> 아직 회원이 아니신가요? <a href="/cinderella/shop/member/registForm"> 회원가입 하러가기
+                          </a> 
+                     </h6>
+                     </td>
+                               </tr>
+                               
+                               <tr>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" name="user_id" placeholder="Username" required>
+                                  <td><h5>  ID : </h5></td> 
+                                  <td class="signin_td"> <input type="text" name="user_id" placeholder="아이디를 입력하세요" required></td>
                                 </div>
+                                </tr>
+                                <tr>
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="password" name="password" placeholder="Password" required>
+                                  <td> <h5> PASSWORD :  &nbsp;</h5></td>
+                                  <td class="signin_td"><input type="password" name="password" placeholder="비밀번호를 입력하세요" required></td>
                                 </div>
-                                <div class="col-md-12 form-group">
+                                </tr>
+                              <tr>
+                              <td class="signin_td" colspan="2">
+                              <!--   <div class="col-md-12 form-group">
                                     <div class="creat_account d-flex align-items-center">
                                        
-                                    </div>
-                                    <input type="button" value="Login" onClick="login()">
-                                        log in
-                                    </button>
-                                 
-                                </div>
+                                    </div> -->
+                                    <input type="button" value="Login" onClick="login()"  style="margin-top:20px">
+                              <!--   </div> -->
+                                </td>
+                                <tr>
+                                </table>
                             </form>
                         </div>
                     </div>
@@ -96,7 +112,7 @@ function login(){
     <!--================login_part end =================-->
 
     <%@ include file="../inc/footer.jsp"%>
-
+<%@ include file="../inc/bottom.jsp" %>
 
 
 </body>

@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.cinderella.exception.ProductRegistException;
-import com.project.cinderella.model.domain.Color;
 import com.project.cinderella.model.domain.Gender;
 
 @Repository
@@ -37,7 +36,7 @@ public class MybatisGenderDAO implements GenderDAO{
 	public void insert(Gender gender) throws ProductRegistException {
 		int result = sqlSessionTemplate.insert("Gender.insert", gender);		
 		if(result==0) {
-			throw new ProductRegistException("ì„±ë³„ ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
+			throw new ProductRegistException("¼ºº° µî·Ï¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
 		}
 	}
 

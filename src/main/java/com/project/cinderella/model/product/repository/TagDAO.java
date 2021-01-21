@@ -6,8 +6,8 @@ import com.project.cinderella.model.domain.Tag;
 
 
 public interface TagDAO {
-	public List selectAll();//ëª¨ë“  ëª©ë¡ ê°€ì ¸ì˜¤ê¸° 
-	public List selectById(int product_id); //fkì— ì†Œì†ëœ ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
+	public List selectAll();//¸ğµç ¸ñ·Ï °¡Á®¿À±â 
+	public List selectById(int product_id); //fk¿¡ ¼Ò¼ÓµÈ ¸ñ·Ï °¡Á®¿À±â
 	public Tag select(int tag_id);
 	public Tag selectByName(String tag_name);
 	public void insert(Tag tag);

@@ -4,14 +4,14 @@ import java.util.List;
 
 import com.project.cinderella.model.domain.Member;
 
-
-
 public interface MemberService {
-   public List selectAll();
+	 public List selectAll();
 
-   /* public List selectMember(); */
-   public Member select(Member member);
-   public void regist(Member member); //íšŒì›ë“±ë¡ë° ê¸°íƒ€í•„ìš”ì‚¬í•­ ì²˜ë¦¬
-   public void update(Member member); //íšŒì›ì •ë³´ ìˆ˜ì •
-   public void delete(Member member); //íšŒì›ì •ë³´ ì‚­ì œ
+	   /* public List selectMember(); */
+	   public Member select(Member member);
+	   public void regist(Member member); //È¸¿øµî·Ï¹× ±âÅ¸ÇÊ¿ä»çÇ× Ã³¸®
+	   public void update(Member member); //È¸¿øÁ¤º¸ ¼öÁ¤
+	   public void delete(Member member); //È¸¿øÁ¤º¸ »èÁ¦
+	   public void shotmail(String user_id);//´çÃ·ÀÚ ¸ŞÀÏº¸³»±â
+	   public void updateBuyCount(Member member, int member_id); //È¸¿øÁ¤º¸ (±¸¸ÅÈ½¼ö)¼öÁ¤
 }

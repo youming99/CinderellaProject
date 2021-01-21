@@ -36,7 +36,7 @@ public class MybatisColorDAO implements ColorDAO{
 	public void insert(Color color) throws ProductRegistException{
 		int result = sqlSessionTemplate.insert("Color.insert", color);		
 		if(result==0) {
-			throw new ProductRegistException("ìƒ‰ìƒ ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
+			throw new ProductRegistException("»ö»ó µî·Ï¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
 		}	
 	}
 

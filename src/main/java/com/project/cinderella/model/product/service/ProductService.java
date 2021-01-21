@@ -7,10 +7,15 @@ import com.project.cinderella.model.domain.Product;
 
 
 public interface ProductService {
-	public List selectAll(); //ëª¨ë“  ìƒí’ˆ
-	public List selectById(int subcategory_id); //í•˜ìœ„ ì¹´í…Œê³ ë¦¬ì— ì†Œì†ëœ ëª¨ë“  ìƒí’ˆ
-	public Product select(int product_id); 
-	public void regist(FileManager fileManager, Product product); //insertë§Œ í•˜ëŠ”ê²Œ ì•„ë‹ˆê¸° ë•Œë¬¸
-	public void update(Product product);
-	public void delete(int product_id);
+   public List selectAll(); //¸ğµç »óÇ°
+   public List selectAllByHit(); //Á¶È¸¼ö¼øÀ¸·Î ¸ğµç »óÇ°
+   public List selectByTopcategoryId(int topcategory_id); //»óÀ§ Ä«Å×°í¸®¿¡ ¼Ò¼ÓµÈ ¸ğµç »óÇ°
+   public List selectBySubcategoryId(int subcategory_id); //ÇÏÀ§ Ä«Å×°í¸®¿¡ ¼Ò¼ÓµÈ ¸ğµç »óÇ°
+   public List selectBySize(String size); //»çÀÌÁîº° ¸ğµç »óÇ°
+   public Product select(int product_id); //¾ÆÀÌµğ·Î°Ë»ö
+   public Product selectByProductName(String product_name); //Á¦Ç°¸íÀ¸·Î °Ë»ö
+   public void regist(FileManager fileManager, Product product); //insert¸¸ ÇÏ´Â°Ô ¾Æ´Ï±â ¶§¹®
+   public void updateHit(int product_id); //Á¶È¸¼ö Áõ°¡
+   public void update(Product product);
+   public void delete(int product_id);
 }

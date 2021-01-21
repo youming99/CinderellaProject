@@ -5,11 +5,11 @@ import java.util.List;
 import com.project.cinderella.model.domain.SubCategory;
 
 public interface SubCategoryService {
-   public List selectAll();
-   public List selectAllById(int topcategory_id);//ì„ íƒí•œ ìƒìœ„ ì¹´í…Œê³ ë¦¬ì— ì†Œì†ëœ í•˜ìœ„ì¹´í…Œê³ ë¦¬ ëª©ë¡ê°€ì ¸ì˜¤ê¸°   
-   public SubCategory select(int subcategory_id);
-   public void insert(SubCategory subCategory);
-   public void update(SubCategory subCategory);
-   public void delete(int subcategory_id);
+	  public List selectAll();
+	   public List selectAllById(int topcategory_id);//¼±ÅÃÇÑ »óÀ§ Ä«Å×°í¸®¿¡ ¼Ò¼ÓµÈ ÇÏÀ§Ä«Å×°í¸® ¸ñ·Ï°¡Á®¿À±â   
+	   public SubCategory select(int subcategory_id);
+	   public void insert(SubCategory subCategory);
+	   public void update(SubCategory subCategory);
+	   public void delete(int subcategory_id);
 
 }

@@ -42,7 +42,7 @@ public class MybatisTagDAO implements TagDAO{
 	public void insert(Tag tag) throws ProductRegistException  {
 		int result = sqlSessionTemplate.insert("Tag.insert", tag);
 		if(result==0) {
-			throw new ProductRegistException("íƒœê·¸ ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
+			throw new ProductRegistException("ÅÂ±× µî·Ï¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");
 		}
 		
 	}

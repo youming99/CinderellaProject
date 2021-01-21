@@ -4,10 +4,9 @@ import java.util.List;
 
 import com.project.cinderella.model.domain.Gender;
 
-
 public interface GenderDAO {
-	public List selectAll();//ëª¨ë“  ëª©ë¡ ê°€ì ¸ì˜¤ê¸° 
-	public List selectById(int product_id); //fkì— ì†Œì†ëœ ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
+	public List selectAll();//¸ğµç ¸ñ·Ï °¡Á®¿À±â 
+	public List selectById(int product_id); //fk¿¡ ¼Ò¼ÓµÈ ¸ñ·Ï °¡Á®¿À±â
 	public Gender select(int gender_id);
 	public void insert(Gender gender);
 	public void update(Gender gender);

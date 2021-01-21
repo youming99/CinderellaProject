@@ -38,7 +38,7 @@ public class MybatisImageDAO implements ImageDAO {
 	public void insert(Image image) throws ProductRegistException {
 		int result = sqlSessionTemplate.insert("Image.insert", image);
 		if(result==0) {
-			throw new ProductRegistException("ì´ë¯¸ì§€ ë“±ë¡ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤");
+			throw new ProductRegistException("ÀÌ¹ÌÁö µî·Ï¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù");
 		}
 	}
 

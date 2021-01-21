@@ -13,53 +13,69 @@ import com.project.cinderella.model.domain.Member;
 @Repository
 public class MybatisMemberDAO implements MemberDAO {
 
-   @Autowired
-   private SqlSessionTemplate sqlSessionTemplate;
-   
-   @Override
-   public List selectAll() {
-      return sqlSessionTemplate.selectList("Member.selectAll");
-      
-   }
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
 
-   
-   
-   
-   //ë¡œê·¸ì¸ ê²€ì¦
-   @Override
-   public Member select(Member member)  throws MemberNotFoundException{
-      Member obj=sqlSessionTemplate.selectOne("Member.select", member);
-      if(obj==null) { //ì˜¬ë°”ë¥´ì§€ ì•Šì€ ì •ë³´ë¡œ íšŒì›ì„ ì¡°íšŒí•˜ë ¤ê³  í•˜ëŠ” ê²ƒì„..
-         throw new MemberNotFoundException("ë¡œê·¸ì¸ ì •ë³´ê°€ ì˜¬ë°”ë¥´ì§€ ì•ŠìŠµë‹ˆë‹¤");
-      }
-      return obj;
-   }
-   
-   /*
-    * @Override public List selectMember() { return
-    * sqlSessionTemplate.selectList("Member.selectMember");
-    * 
-    * }
-    */
+	@Override
+	public List selectAll() {
+		return sqlSessionTemplate.selectList("Member.selectAll");
 
-   @Override
-   public void insert(Member member) {
-      int result = sqlSessionTemplate.insert("Member.insert", member);
-      if(result==0) {
-         throw new MemberRegistException("íšŒì›ê°€ì…ì— ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
-      }
-   }
+	}
 
-   @Override
-   public void update(Member member) {
-      // TODO Auto-generated method stub
-      
-   }
+	// ·Î±×ÀÎ °ËÁõ
+	@Override
+	public Member select(Member member) throws MemberNotFoundException {
+		Member obj = sqlSessionTemplate.selectOne("Member.select", member);
+		if (obj == null) { // ¿Ã¹Ù¸£Áö ¾ÊÀº Á¤º¸·Î È¸¿øÀ» Á¶È¸ÇÏ·Á°í ÇÏ´Â °ÍÀÓ..
+			throw new MemberNotFoundException("·Î±×ÀÎ Á¤º¸°¡ ¿Ã¹Ù¸£Áö ¾Ê½À´Ï´Ù");
+		}
+		return obj;
+	}
 
-   @Override
-   public void delete(Member member) {
-      // TODO Auto-generated method stub
-      
-   }
+	/*
+	 * @Override public List selectMember() { return
+	 * sqlSessionTemplate.selectList("Member.selectMember");
+	 * 
+	 * }
+	 */
+
+	@Override
+	public void insert(Member member) {
+
+		int result = sqlSessionTemplate.insert("Member.insert", member);
+		if (result == 0) {
+			throw new MemberRegistException("È¸¿ø°¡ÀÔ¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+		}
+	}
+
+	@Override
+	public void update(Member member) {
+		System.out.println("¼öÁ¤DAOÀÏ½ÃÀÛ");
+		int result = sqlSessionTemplate.update("Member.update", member);
+
+		System.out.println("¼öÁ¤DAOÀÏ³¡");
+
+	}
+
+	@Override
+	public void delete(Member member) {
+		sqlSessionTemplate.delete("Member.delete", member);
+
+	}
+
+	@Override
+	public Member selectbyuser_id(String user_id) {
+
+		return sqlSessionTemplate.selectOne("Member.selectbyuser_id", user_id);
+	}
+
+	@Override
+	public void updateBuyCount(Member member, int member_id) {
+		int result = sqlSessionTemplate.insert("Member.updateBuyCount", member);
+		if (result == 0) {
+			throw new MemberRegistException("±¸¸ÅÈ½¼ö ¾÷µ¥ÀÌÆ®¿¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+		}
+
+	}
 
 }

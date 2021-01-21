@@ -2,14 +2,11 @@ package com.project.cinderella.model.member.service;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.cinderella.common.MailSender;
 import com.project.cinderella.common.SecureManager;
-import com.project.cinderella.controller.member.MemberController;
 import com.project.cinderella.exception.MemberNotFoundException;
 import com.project.cinderella.model.domain.Member;
 import com.project.cinderella.model.member.repository.MemberDAO;
@@ -21,11 +18,11 @@ public class MemberServiceImpl implements MemberService{
    @Autowired
    private MemberDAO memberDAO;
    
-   //ì•”í˜¸í™” ê°ì²´ 
+   //¾ÏÈ£È­ °´Ã¼ 
       @Autowired
       private SecureManager secureManager;
       
-      //ë©”ì¼ë°œì†¡ ê°ì²´
+      //¸ŞÀÏ¹ß¼Û °´Ã¼
       @Autowired
       private MailSender mailSender;
    
@@ -41,41 +38,64 @@ public class MemberServiceImpl implements MemberService{
     
    @Override
    public Member select(Member member) throws MemberNotFoundException {
-      //ìœ ì €ê°€ ì „ì†¡í•œ íŒŒë¼ë¯¸í„°ë¹„ë²ˆì„ í•´ì‹œê°’ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ ì•„ë˜ì˜ ë©”ì„œë“œ í˜¸ì¶œ 
+      //À¯Àú°¡ Àü¼ÛÇÑ ÆÄ¶ó¹ÌÅÍºñ¹øÀ» ÇØ½Ã°ªÀ¸·Î º¯È¯ÇÏ¿© ¾Æ·¡ÀÇ ¸Ş¼­µå È£Ãâ 
             String hash = secureManager.getSecureData(member.getPassword()); 
-            member.setPassword(hash); //VOì— í•´ì‹œê°’ ëŒ€ì…!!
+            member.setPassword(hash); //VO¿¡ ÇØ½Ã°ª ´ëÀÔ!!
             Member obj = memberDAO.select(member);
             return obj;
    }
 
    @Override
    public void regist(Member member) {
-      //ì•”í˜¸í™” ì²˜ë¦¬ 
+      //¾ÏÈ£È­ Ã³¸® 
       
         String secureData = secureManager.getSecureData(member.getPassword());
-        member.setPassword(secureData); //ë³€í™˜ì‹œì¼œ ë‹¤ì‹œ VOì— ëŒ€ì…
-                   
+        member.setPassword(secureData); //º¯È¯½ÃÄÑ ´Ù½Ã VO¿¡ ´ëÀÔ
+        System.out.println("¼­ºñ½ºÀÏ½ÃÀÛ");       
             memberDAO.insert(member);
-            
+            System.out.println("¼­ºñ½ºÀÏ³¡");
             String name=member.getName();
             String addr=member.getAddr();
             String email = member.getEmail_id()+"@"+member.getEmail_server();
-      
-            
-            
-            mailSender.send(email , name+"ë‹˜ maleshop ê°€ì…ì¶•í•˜", "ë§ì´ ì´ìš©í•´ì£¼ì„¸ìš”");
+            mailSender.send(email , name+"´Ô maleshop °¡ÀÔÃàÇÏ", "¸¹ÀÌ ÀÌ¿ëÇØÁÖ¼¼¿ä");
    }
+      
 
    @Override
    public void update(Member member) {
-      // TODO Auto-generated method stub
       
+	   String secureData = secureManager.getSecureData(member.getPassword());
+       member.setPassword(secureData); //º¯È¯½ÃÄÑ ´Ù½Ã VO¿¡ ´ëÀÔ
+       System.out.println("¼­ºñ½ºÀÏ½ÃÀÛ");
+       memberDAO.update(member);
+       System.out.println("¼­ºñ½ºÀÏ³¡");
+       
+       
+       
    }
 
    @Override
    public void delete(Member member) {
-      // TODO Auto-generated method stub
+      memberDAO.delete(member);
       
    }
+
+
+@Override
+public void shotmail(String user_id) {
+	Member member =memberDAO.selectbyuser_id(user_id);
+	
+	String name=member.getName();
+	String email =  member.getEmail_id()+"@"+member.getEmail_server();
+	mailSender.send(email, name+"´Ô ÀÌº¥Æ® ´çÃ·(10000¿ø ÇÒÀÎ±Ç)À» Áø½ÉÀ¸·Î ÃàÇÏµå¸³´Ï´Ù!", "ÀÌº¥Æ®ÄÚµå : qweqwe12");
+	
+}
+
+
+@Override
+public void updateBuyCount(Member member, int member_id) {
+	memberDAO.updateBuyCount(member, member_id);
+	
+}
 
 }

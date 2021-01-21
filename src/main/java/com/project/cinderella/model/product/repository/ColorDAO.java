@@ -6,8 +6,8 @@ import com.project.cinderella.model.domain.Color;
 
 
 public interface ColorDAO {
-	public List selectAll();//ëª¨ë“  ëª©ë¡ ê°€ì ¸ì˜¤ê¸° 
-	public List selectById(int product_id); //fkì— ì†Œì†ëœ ëª©ë¡ ê°€ì ¸ì˜¤ê¸°
+	public List selectAll();//¸ğµç ¸ñ·Ï °¡Á®¿À±â 
+	public List selectById(int product_id); //fk¿¡ ¼Ò¼ÓµÈ ¸ñ·Ï °¡Á®¿À±â
 	public Color select(int color_id);
 	public void insert(Color color);
 	public void update(Color color);

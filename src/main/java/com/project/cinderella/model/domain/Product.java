@@ -4,38 +4,41 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-
 import lombok.Data;
 
 @Data
 public class Product {
-	private int product_id;
-	private SubCategory subCategory;
-	private int subcategory_id;
-	private String product_name;
-	private String brand;
-	private int price;
-	private String detail;
-	private int hit;
-	private String filename; // currentTimeMilsë¡œ í•  ê²ƒì„
+   private int product_id;
+   private int topcategory_id;
+   private SubCategory subCategory;
+   private Psize pppsize;
+   private int subcategory_id;
+   private String product_name;
+   private String brand;
+   private int price;
+   private String detail;
+   private int hit;
+   private String filename; // currentTimeMils·Î ÇÒ °ÍÀÓ
+   
 
-	// ì´ë¯¸ì§€ í•˜ë‚˜ë¥¼ ìë™ìœ¼ë¡œ ì²˜ë¦¬í•˜ëŠ” ê°ì²´ ì„ ì–¸
-	// ë‹¨, ì´ë¦„ì„ htmlì˜ ì—…ë„ë¥´ ì»´í¬ë„ŒíŠ¸ íŒŒë¼ë¯¸í„°ëª…ê³¼ ì¼ì¹˜ì‹œì¼œì•¼ ìë™ìœ¼ë¡œ ì—…ë¡œë“œ ì²˜ë¦¬
-	private MultipartFile repImg; // ëŒ€í‘œì´ë¯¸ì§€
-	private MultipartFile[] addImg; // ì¶”ê°€ ì´ë¯¸ì§€ëŠ” ì„ íƒì‚¬í•­. ë°°ì—´.
+   // ÀÌ¹ÌÁö ÇÏ³ª¸¦ ÀÚµ¿À¸·Î Ã³¸®ÇÏ´Â °´Ã¼ ¼±¾ğ
+   // ´Ü, ÀÌ¸§À» htmlÀÇ ¾÷µµ¸£ ÄÄÆ÷³ÍÆ® ÆÄ¶ó¹ÌÅÍ¸í°ú ÀÏÄ¡½ÃÄÑ¾ß ÀÚµ¿À¸·Î ¾÷·Îµå Ã³¸®
+   private MultipartFile repImg; // ´ëÇ¥ÀÌ¹ÌÁö
+   private MultipartFile[] addImg; // Ãß°¡ ÀÌ¹ÌÁö´Â ¼±ÅÃ»çÇ×. ¹è¿­.
 
-	// ì¡°ì¸í•  ë•Œ ì‚¬ìš©
-	//private Score score;
-	private List<Psize> psizeList;
-	private List<Color> colorList;
-	private List<Tag> tagList;
-	private List<Gender> genderList;
-	private List<Image> imageList;
+   // Á¶ÀÎÇÒ ¶§ »ç¿ë
+   //private Score score;
+   private List<Psize> psizeList;
+   private List<Color> colorList;
+   private List<Tag> tagList;
+   private List<Gender> genderList;
+   private List<Image> imageList;
+   
 
-	// insertí•  ë•Œ ì‚¬ìš©
-	private Psize[] psize; // ì‚¬ì´ì¦ˆ
-	private Color[] color; // ìƒ‰ìƒê°’ë“¤
-	private Tag[] ptag; // íƒœê·¸ë“¤
-	private Gender[] pgender; // ì„±ë³„
+   // insertÇÒ ¶§ »ç¿ë
+   private Psize[] psize; // »çÀÌÁî
+   private Color[] color; // »ö»ó°ªµé
+   private Tag[] ptag; // ÅÂ±×µé
+   private Gender[] pgender; // ¼ºº°
 
 }

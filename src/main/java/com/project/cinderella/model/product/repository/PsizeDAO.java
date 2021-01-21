@@ -1,4 +1,3 @@
-  
 package com.project.cinderella.model.product.repository;
 
 import java.util.List;
@@ -7,10 +6,11 @@ import com.project.cinderella.model.domain.Psize;
 
 
 public interface PsizeDAO {
-	public List selectAll();//ê·¸ëƒ¥ ëª¨ë“  ë°ì´í„° ê°€ì ¸ì˜¤ê¸° 
-	public List selectById(int product_id); //fkì— ì†Œì†ëœ ëª¨ë“  ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
-	public Psize select(int psize_id);
-	public void insert(Psize psize);
-	public void update(Psize psize);
-	public void delete(int psize_id);
+   public List selectAll();//±×³É ¸ğµç µ¥ÀÌÅÍ °¡Á®¿À±â 
+   public List selectById(int product_id); //fk¿¡ ¼Ò¼ÓµÈ ¸ğµç µ¥ÀÌÅÍ °¡Á®¿À±â
+   public List selectBySize(String size); //»çÀÌÁîº° »óÇ°
+   public Psize select(int psize_id);
+   public void insert(Psize psize);
+   public void update(Psize psize);
+   public void delete(int product_id);
 }

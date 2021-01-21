@@ -5,8 +5,8 @@ import java.util.List;
 import com.project.cinderella.model.domain.Image;
 
 public interface ImageDAO {
-	public List selectAll(); //ëª¨ë“  ì´ë¯¸ì§€
-	public List selectById(int product_id); //fkì— ì†Œì†ëœ ëª¨ë“  ì´ë¯¸ì§€
+	public List selectAll(); //¸ğµç ÀÌ¹ÌÁö
+	public List selectById(int product_id); //fk¿¡ ¼Ò¼ÓµÈ ¸ğµç ÀÌ¹ÌÁö
 	public Image select(int image_id);
 	public void insert(Image image);
 	public void update(Image image);

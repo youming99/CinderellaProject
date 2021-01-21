@@ -4,15 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias type="com.project.cinderella.model.domain.Gender" alias="Gender"/>
 		<typeAlias type="com.project.cinderella.model.domain.TopCategory" alias="TopCategory"/>
 		<typeAlias type="com.project.cinderella.model.domain.SubCategory" alias="SubCategory"/>
 		<typeAlias type="com.project.cinderella.model.domain.Product" alias="Product"/>
 		<typeAlias type="com.project.cinderella.model.domain.Image" alias="Image"/>
 		<typeAlias type="com.project.cinderella.model.domain.Psize" alias="Psize"/>
 		<typeAlias type="com.project.cinderella.model.domain.Color" alias="Color"/>
-		<typeAlias type="com.project.cinderella.model.domain.Gender" alias="Gender"/>
 		<typeAlias type="com.project.cinderella.model.domain.Tag" alias="Tag"/>
+		
 		<typeAlias type="com.project.cinderella.model.domain.Member" alias="Member"/>
+		
+		<typeAlias type="com.project.cinderella.model.domain.Comments" alias="Comments"/>
+		<typeAlias type="com.project.cinderella.model.domain.PhotoReview" alias="PhotoReview"/>
+
+		<typeAlias type="com.project.cinderella.model.domain.Cart" alias="Cart"/>
+		<typeAlias type="com.project.cinderella.model.domain.Paymethod" alias="Paymethod"/>
+		<typeAlias type="com.project.cinderella.model.domain.Receiver" alias="Receiver"/>
+		<typeAlias type="com.project.cinderella.model.domain.Paymethod" alias="Paymethod"/>
+		<typeAlias type="com.project.cinderella.model.domain.OrderSummary" alias="OrderSummary"/>
+		<typeAlias type="com.project.cinderella.model.domain.OrderState" alias="OrderState"/>
+		
 	</typeAliases>
   	<mappers>
 		<mapper resource="com/project/cinderella/mybatis/mapper/TopCategoryMapper.xml"/>
@@ -23,6 +35,17 @@
 		<mapper resource="com/project/cinderella/mybatis/mapper/ColorMapper.xml"/>
 		<mapper resource="com/project/cinderella/mybatis/mapper/GenderMapper.xml"/>
 		<mapper resource="com/project/cinderella/mybatis/mapper/TagMapper.xml"/>
+		
 		<mapper resource="com/project/cinderella/mybatis/mapper/MemberMapper.xml"/>
+		
+		<mapper resource="com/project/cinderella/mybatis/mapper/CommentsMapper.xml"/>
+		<mapper resource="com/project/cinderella/mybatis/mapper/PhotoReviewMapper.xml"/>
+		
+		<mapper resource="com/project/cinderella/mybatis/mapper/CartMapper.xml"/>
+		<mapper resource="com/project/cinderella/mybatis/mapper/PaymethodMapper.xml"/>
+		<mapper resource="com/project/cinderella/mybatis/mapper/ReceiverMapper.xml"/>
+		<mapper resource="com/project/cinderella/mybatis/mapper/OrderSummaryMapper.xml"/>
+		<mapper resource="com/project/cinderella/mybatis/mapper/OrderStateMapper.xml"/>
+		
   	</mappers>
 </configuration>

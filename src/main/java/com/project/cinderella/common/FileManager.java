@@ -11,11 +11,13 @@ import org.springframework.web.multipart.MultipartFile;
 import lombok.Data;
 
 @Data
-@Component /*component-scan 대상 중 하나*/
+@Component 
 public class FileManager {
 	private static final Logger logger = LoggerFactory.getLogger(FileManager.class);
 	private String saveBasicDir = "/resources/data/basic";
 	private String saveAddonDir = "/resources/data/addon";
+	private String savepreviewBasicDir ="/resources/data/previewbasic";
+	
 	
 	public static String getExtend(String path) {
 		int start = path.lastIndexOf(".");
@@ -30,7 +32,7 @@ public class FileManager {
 		return file.delete();
 	}
 	
-	//파일 저장하기
+
 	public void saveFile(String realDir, MultipartFile multi) {
 		try {
 			multi.transferTo(new File(realDir));

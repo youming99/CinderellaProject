@@ -1,6 +1,6 @@
 package com.project.cinderella.exception;
 
-//CRUD ì‘ì—… ì‹œ ë°œìƒí•˜ëŠ” ì˜ˆì™¸
+//CRUD ÀÛ¾÷ ½Ã ¹ß»ıÇÏ´Â ¿¹¿Ü
 public class ProductRegistException extends RuntimeException{
 	
 	public ProductRegistException(String msg) {
